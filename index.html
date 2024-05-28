@@ -108,12 +108,12 @@
 
             const userMessage = document.createElement('div');
             userMessage.className = 'message user';
-            userMessage.innerHTML = `<div class="content">${userInput.value}</div><img src="user-icon.svg" alt="User">`;
+            userMessage.innerHTML = `<div class="content">${userInput.value}</div><img src="https://dates4u.github.io/GPT-chat-AI/user-icon.svg" alt="User">`;
             chatWindow.appendChild(userMessage);
 
             const botMessage = document.createElement('div');
             botMessage.className = 'message bot';
-            botMessage.innerHTML = `<img src="bot-icon.svg" alt="Bot"><div class="content">${getBotResponse(userInput.value)}</div>`;
+            botMessage.innerHTML = `<img src="https://dates4u.github.io/GPT-chat-AI/bot-icon.svg" alt="Bot"><div class="content">${getBotResponse(userInput.value)}</div>`;
             chatWindow.appendChild(botMessage);
 
             chatWindow.scrollTop = chatWindow.scrollHeight;
