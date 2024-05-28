@@ -16,7 +16,6 @@
             background: linear-gradient(135deg, #2b5876 0%, #4e4376 100%);
             color: #ffffff;
         }
-        
         .chat-container {
             width: 400px;
             background: #333;
@@ -40,6 +39,8 @@
         }
         .message {
             margin-bottom: 15px;
+            display: flex;
+            align-items: center;
         }
         .message.user .content {
             text-align: right;
@@ -48,6 +49,7 @@
             border-radius: 10px;
             display: inline-block;
             color: #fff;
+            order: 2;
         }
         .message.bot .content {
             background-color: #444;
@@ -55,6 +57,12 @@
             border-radius: 10px;
             display: inline-block;
             color: #fff;
+        }
+        .message img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin: 0 10px;
         }
         .input-container {
             padding: 10px;
@@ -100,12 +108,12 @@
 
             const userMessage = document.createElement('div');
             userMessage.className = 'message user';
-            userMessage.innerHTML = `<div class="content">${userInput.value}</div>`;
+            userMessage.innerHTML = `<div class="content">${userInput.value}</div><img src="user-icon.png" alt="User">`;
             chatWindow.appendChild(userMessage);
 
             const botMessage = document.createElement('div');
             botMessage.className = 'message bot';
-            botMessage.innerHTML = `<div class="content">${getBotResponse(userInput.value)}</div>`;
+            botMessage.innerHTML = `<img src="bot-icon.png" alt="Bot"><div class="content">${getBotResponse(userInput.value)}</div>`;
             chatWindow.appendChild(botMessage);
 
             chatWindow.scrollTop = chatWindow.scrollHeight;
@@ -115,13 +123,6 @@
         function getBotResponse(userText) {
             try {
                 if (userText.toLowerCase().startsWith('say ')) {
-                    return userText.substring(4);
-                } else {
-                    return eval(userText);
-                }
-        function getBotResponse(userText) {
-            try {
-                if (userText.toLowerCase().startsWith('say this ')) {
                     return userText.substring(4);
                 } else {
                     return eval(userText);
