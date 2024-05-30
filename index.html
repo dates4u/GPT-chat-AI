@@ -167,16 +167,17 @@
 
     function sendMessage() {
         const userInput = document.getElementById('user-input');
-        if (userInput.value.trim() === '') return;
+        const messageContent = userInput.value.trim();
+        if (messageContent === '') return;
 
         const userMessage = {
             sender: 'user',
-            content: `<img src="https://dates4u.github.io/GPT-chat-AI/user-icon.svg" alt="User"><div class="content">${userInput.value}</div>`
+            content: `<img src="https://dates4u.github.io/GPT-chat-AI/user-icon.svg" alt="User"><div class="content">${messageContent}</div>`
         };
         chats[currentChat].push(userMessage);
         renderChat();
 
-        const botResponse = getBotResponse(userInput.value);
+        const botResponse = getBotResponse(messageContent);
         typeBotMessage(botResponse);
 
         userInput.value = '';
@@ -186,7 +187,7 @@
         const chatWindow = document.getElementById('chat-window');
         const botMessageElement = document.createElement('div');
         botMessageElement.className = 'message bot';
-        botMessageElement.innerHTML = `<div class="content typing-indicator">...</div><img src="https://dates4u.github.io/GPT-chat-AI/bot-icon.svg" alt="Bot">`;
+        botMessageElement.innerHTML = `<img src="https://dates4u.github.io/GPT-chat-AI/bot-icon.svg" alt="Bot"><div class="content">${message}</div>`;
         chatWindow.appendChild(botMessageElement);
         chatWindow.scrollTop = chatWindow.scrollHeight;
     }
