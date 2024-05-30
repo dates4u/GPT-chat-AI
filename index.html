@@ -26,14 +26,6 @@
             flex-direction: column;
             overflow: hidden;
         }
-        .chat-header {
-            background: #444;
-            padding: 15px;
-            text-align: -webkit-center;
-            font-size: 18px;
-            display: flex;
-            justify-content: space-between;
-        }
         .chat-window {
             padding: 20px;
             height: 350px;
@@ -129,15 +121,11 @@
     </style>
 </head>
 <body>
-    <div class="chat-container">
-        <div class="chat-header">
-            <div>GPT Chat AI</div>
-            <hr>
-            <div class="chat-selector">
-                <button onclick="selectChat(1)">Chat 1</button>
-                <button onclick="selectChat(2)">Chat 2</button>
-                <button onclick="selectChat(3)">Chat 3</button>
-            </div>
+<div class="chat-selector">
+ <button onclick="selectChat(1)">Chat 1</button>
+ <button onclick="selectChat(2)">Chat 2</button>
+ <button onclick="selectChat(3)">Chat 3</button>
+</div>
         </div>
         <div class="chat-window" id="chat-window">
             <!-- Messages will appear here -->
