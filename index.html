@@ -190,21 +190,6 @@
             chatWindow.appendChild(botMessageElement);
             chatWindow.scrollTop = chatWindow.scrollHeight;
 
-            let index = 0;
-            const interval = Math.max(1, 3 / message.length);  // Adjust typing speed based on message length
-
-            const typingInterval = setInterval(() => {
-                if (index < message.length) {
-                    botMessageElement.querySelector('.content').textContent = message.substring(0, index + 1);
-                    index++;
-                    chatWindow.scrollTop = chatWindow.scrollHeight;
-                } else {
-                    clearInterval(typingInterval);
-                    botMessageElement.querySelector('.content').innerHTML = message;
-                }
-            }, interval);
-        }
-
         function getBotResponse(userText) {
             try {
                 if (userText.toLowerCase().startsWith('say ')) {
@@ -220,6 +205,7 @@
                     "how are you": "i dont have fielings",
                     "are you a poopy head": "no, why",
                     "are you a poopy head?": "no, why",
+                    "say the skibidi lore": "<b> skibidi </b> is made by DaFuqBoom or TrashMan987",
                     "what is your name?": "I'am a cool arifitial intlegence with reel AI gpt-4.",
                     "what is your name": "I'am a cool arifitial intlegence with reel AI gpt-4.",
                     "make me a website": "ok sure why not ur not mr best <br> /e make website = true. <br> make.website = cool <br> _website = cool <br> if not cool = make.website = cool",
