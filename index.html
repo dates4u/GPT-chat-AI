@@ -42,21 +42,27 @@
             display: flex;
             align-items: center;
         }
-        .message.user .content {
-            text-align: right;
-            background-color: #007bff;
+        .message.user {
+            justify-content: flex-start;
+        }
+        .message.bot {
+            justify-content: flex-end;
+        }
+        .message .content {
+            max-width: 60%;
             padding: 10px;
             border-radius: 10px;
-            display: inline-block;
+        }
+        .message.user .content {
+            background-color: #444;
             color: #fff;
-            order: 2;
+            border-top-left-radius: 0;
+            order: 1;
         }
         .message.bot .content {
-            background-color: #444;
-            padding: 10px;
-            border-radius: 10px;
-            display: inline-block;
+            background-color: #007bff;
             color: #fff;
+            border-top-right-radius: 0;
         }
         .message img {
             width: 30px;
@@ -92,6 +98,7 @@
     <div class="chat-container">
         <div class="chat-header">GPT Chat AI</div>
         <div class="chat-window" id="chat-window">
+            <!-- Messages will appear here -->
         </div>
         <div class="input-container">
             <input type="text" id="user-input" placeholder="Type a message">
@@ -108,12 +115,12 @@
 
             const userMessage = document.createElement('div');
             userMessage.className = 'message user';
-            userMessage.innerHTML = `<div class="content">${userInput.value}</div><img src="https://dates4u.github.io/GPT-chat-AI/user-icon.svg" alt="User">`;
+            userMessage.innerHTML = `<img src="https://dates4u.github.io/GPT-chat-AI/user-icon.svg" alt="User"><div class="content">${userInput.value}</div>`;
             chatWindow.appendChild(userMessage);
 
             const botMessage = document.createElement('div');
             botMessage.className = 'message bot';
-            botMessage.innerHTML = `<img src="https://dates4u.github.io/GPT-chat-AI/bot-icon.svg" alt="Bot"><div class="content">${getBotResponse(userInput.value)}</div>`;
+            botMessage.innerHTML = `<div class="content">${getBotResponse(userInput.value)}</div><img src="https://dates4u.github.io/GPT-chat-AI/bot-icon.svg" alt="Bot">`;
             chatWindow.appendChild(botMessage);
 
             chatWindow.scrollTop = chatWindow.scrollHeight;
