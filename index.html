@@ -191,7 +191,7 @@
             chatWindow.scrollTop = chatWindow.scrollHeight;
 
             let index = 0;
-            const interval = Math.max(50, 3000 / message.length);  // Adjust typing speed based on message length
+            const interval = Math.max(1, 3 / message.length);  // Adjust typing speed based on message length
 
             const typingInterval = setInterval(() => {
                 if (index < message.length) {
